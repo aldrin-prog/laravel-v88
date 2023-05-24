@@ -15,92 +15,72 @@
             text-align:center;
             margin-top:60px;
         }
-        form{
+        .container-result{
             border:4px solid black;
             width:35%;
             border-radius:15px;
             padding:20px;
             margin:auto;
         }
-            form div{
+            .container-result div{
                 display:flex;
                 justify-content: space-between;
                 align-items:baseline;
-                margin:10px 0px
+                margin:10px 0px;
             }
-                form div label{
+                .container-result div label{
                     font-weight:600;
                 }
-                form div input{
-                    display: block;
-                    border:3px solid black;
-                    height:30px;
-                    width:50%
+                .container-result div p{
+                    width:50%;
+                    text-align:left;
                 }
-                form div textarea{
-                    display: block;
-                    border:3px solid black;
-                    min-width:50%;
-                    max-width:50%;
-                    min-height:100px;
-                    max-height:100px;
-
-                }
-                form div select{
-                    display: block;
-                    border:3px solid black;
-                    height:30px;
-                    width:52%
-                }
-                form div input:focus{
-                    outline:none;
-                }
-            input[type='submit']{
+                
+           .btn-primary{
+                width:max-content;
                 display:block;
                 margin-left:auto;
                 padding:5px 10px;
                 background-color:#2B78E4;
                 color:white;
                 border:3px solid black;
+                text-decoration:none;
+                padding:5px 20px;
             }
     </style>
 </head>
 <body>
     <p class='headerTitle'>Job Application Form</p>
-    <form action=<?=route('result')?> method="post">
-        @csrf
+    <div class="container-result">
         <div class='container-field'>
             <label for="">Full Name</label>
-            <input type="text" name="fullname" id="fullname">
+            <p class='value'><?=$fullname?></p>
         </div>
         <div class='container-field'>
             <label for="">Email</label>
-            <input type="email" name="email" id="email">
+            <p class='value'><?=$email?></p>
         </div>
         <div class='container-field'>
             <label for="">Phone Number</label>
-            <input type="text" name="phoneNumber" id="phoneNumber">
+            <p class='value'><?=$phoneNumber?></p>
         </div>
         <div class='container-field'>
             <label for="">Resume Link</label>
-            <input type="text" name="resumeLink" id="resumeLink">
+            <p class='value'><?=$resumeLink?></p>
         </div>
         <div class='container-field'>
             <label for="">Cover Letter</label>
-            <textarea name="coverLetter" id="coverLetter" cols="30" rows="10"></textarea>
+            <p class='value'><?=$coverLetter?></p>
         </div>
         <div class='container-field'>
             <label for="">Position</label>
-            <select name="position" id="position">
-                <option value=''>Select position</option>
-                <option value="Web Developer">Web Develop</option>
-            </select>
+            <p class='value'><?=$position?></p>
         </div>
         <div class='container-field'>
             <label for="">Salary Expectation</label>
-            <input type="text" name="expectedSalary" id="expectedSalary">
+            <p class='value'><?=$expectedSalary?></p>
         </div>
-        <input type="submit" value="Submit Application">
-    </form>
+        <a href="/" class='btn-primary'>Return</a>
+    </div>
 </body>
 </html>
