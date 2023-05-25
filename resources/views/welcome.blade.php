@@ -55,6 +55,15 @@
                 form div input:focus{
                     outline:none;
                 }
+                form .alert-danger{
+                    display:block;
+                    color:red;
+                   
+                }
+                    form .aler-danger p{
+                        margin:0px;
+                        padding:0px;
+                    }
             input[type='submit']{
                 display:block;
                 margin-left:auto;
@@ -66,8 +75,16 @@
     </style>
 </head>
 <body>
+
     <p class='headerTitle'>Job Application Form</p>
     <form action=<?=route('result')?> method="post">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+            </div>
+        @endif
         @csrf
         <div class='container-field'>
             <label for="">Full Name</label>
@@ -75,7 +92,7 @@
         </div>
         <div class='container-field'>
             <label for="">Email</label>
-            <input type="email" name="email" id="email">
+            <input type="text" name="email" id="email">
         </div>
         <div class='container-field'>
             <label for="">Phone Number</label>
